@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/funciones.php';
 include_once 'FaqSinonimos.php';
 $texto = "crear propiedad";
 $link = conectar();
@@ -20,7 +21,5 @@ foreach ($arr_sinonimos as $el_sinonimo){
 $sql = "SELECT * FROM portales.faqs WHERE 1=1 $buscar";
 echo $sql;
 
-function conectar(){
-    return  mysqli_connect('localhost','root','root',null,null);
-}
+
 
