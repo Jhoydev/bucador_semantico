@@ -9,24 +9,28 @@ class FaqSinonimos
 {
 
     private $link;
-    private $palabras;
+    private $words;
+    private $database = 'portales';
+    private $table = 'faq_sinonimos';
+    private $id = 'id';
+    private $field = 'palabra';
 
-    function __construct($link,$palabras){
+    function __construct($link,$words){
         $this->link = $link;
-        $this->palabras = $palabras;
+        $this->words = $words;
     }
     public function get(){
-        $sinonimos = [];
-        foreach ($this->palabras as $palabra){
-            $array_sinonimos = $this->search($this->link,$palabra);
-            $sinonimos = array_merge($sinonimos,$array_sinonimos);
+        $synonymous = [];
+        foreach ($this->words as $word){
+            $array_synonymous = $this->search($this->link,$word);
+            $synonymous = array_merge($synonymous,$array_synonymous);
         }
-        return array_unique($sinonimos);
+        return array_unique($synonymous);
     }
 
-    private function search($link, $palabra){
-        $palabra = mysqli_real_escape_string($link, $palabra);
-        $sql = "SELECT id FROM portales.faq_sinonimos WHERE CONCAT(',',palabra,',') LIKE '%,$palabra,%'";
+    private function search($link, $word){
+        $word = mysqli_real_escape_string($link, $word);
+        $sql = "SELECT {$this->id} FROM {$this->database}.{$this->table} WHERE CONCAT(',',{$this->field},',') LIKE '%,$word,%'";
         $rs = mysqli_query($link,$sql);
         $res = [];
         while ($row = mysqli_fetch_assoc($rs)){

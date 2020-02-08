@@ -1,25 +1,22 @@
 <?php
 require_once __DIR__ . '/funciones.php';
 include_once 'FaqSinonimos.php';
-$texto = "crear propiedad";
+header('Content-Type: application/json');
+
+$texto = $_GET['query'];
+
 $link = conectar();
 $buscar = '';
-if ($texto == '') { die('nada que buscar'); }
+if ($texto == '') {
+    die(json_encode(['status' => 'error', 'message' => 'Texto requerido']));
+}
 
 $palabras = explode(' ', $texto);
 $sinonimos = new FaqSinonimos($link,$palabras);
 $arr_sinonimos = $sinonimos->get();
 
-$buscar = '';
-foreach ($palabras as $palabra){
-    $buscar .= " OR respuesta LIKE '%$palabra%' ";
-}
-foreach ($arr_sinonimos as $el_sinonimo){
-    $buscar .= " OR CONCAT(',',respuesta,',') LIKE '%,$el_sinonimo,%'";
-}
+die(json_encode(['status'=>'success','data' => $arr_sinonimos,'total' => count($arr_sinonimos)]));
 
-$sql = "SELECT * FROM portales.faqs WHERE 1=1 $buscar";
-echo $sql;
 
 
 

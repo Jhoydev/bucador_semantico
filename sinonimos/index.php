@@ -13,11 +13,11 @@ $sinonimos = mysqli_fetch_all($rs,MYSQLI_ASSOC);
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <?php include __DIR__.'/partials/head.php' ?>
+    <?php include __DIR__ . '/../partials/head.php' ?>
 
 </head>
 <body>
-    <?php include __DIR__.'/partials/navbar.php' ?>
+    <?php include __DIR__ . '/../partials/navbar.php' ?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -51,7 +51,7 @@ $sinonimos = mysqli_fetch_all($rs,MYSQLI_ASSOC);
             </div>
         </div>
     </div>
-    <?php include __DIR__.'/partials/scripts.php' ?>
+    <?php include __DIR__ . '/../partials/scripts.php' ?>
     <script>
         $(document).ready(function() {
             $('#tabla').DataTable();
