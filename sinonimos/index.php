@@ -20,34 +20,34 @@ $sinonimos = mysqli_fetch_all($rs,MYSQLI_ASSOC);
     <?php include __DIR__ . '/../partials/navbar.php' ?>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 text-center">
                 <h1 class="my-0">Sinonimos</h1>
                 <p>Listado de sinonimos y que nutre las FAQs</p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 mb-3">
-                <a href="create.php" class="btn btn-sm btn-primary">Nueva Palabra</a>
-            </div>
-            <div class="col-12">
-                <table id="tabla" class="table table-striped table-bordered" style="width:100%">
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Palabras</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach ($sinonimos as $sinonimo): ?>
-                        <tr>
-                            <td><?php echo $sinonimo['id'] ?></td>
-                            <td><?php echo $sinonimo['palabra'] ?></td>
-                            <td class="text-center"><i class="fa fa-plus-circle" aria-hidden="true"></i></td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-body">
+                        <table id="tabla" class="table table-striped" style="width:100%">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Palabras</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach ($sinonimos as $sinonimo): ?>
+                                <tr>
+                                    <td><?php echo $sinonimo['id'] ?></td>
+                                    <td><?php echo $sinonimo['palabra'] ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

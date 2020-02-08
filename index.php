@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <h1 class="text-center">Buscador Semantico</h1>
+                <h1 class="text-center">Buscador de sinonimos</h1>
             </div>
         </div>
     </div>

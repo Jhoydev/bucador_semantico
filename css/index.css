@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins|Roboto&display=swap');
+:root{
+    --primary: #red;
+}
+h1,h2,h3,h4,h5{
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    color: white;
+    background-color: #1a1825;
+}
+.card{
+    background-color: #2e2b42;
+    color: white;
+}
+.table th, .table thead th{
+    border-bottom: 1px solid #1a1926fa;
+    border-top: 1px solid #1a1926fa;
+}
+.table td{
+    border: none;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+.bg-dark {
+    background-color: #1a1825 !important;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+.btn-primary, .page-item.active .page-link{
+    background-color: #d9b80a;
+    border-color: #d9b80a;
+}
+
+.btn-primary:hover, .btn-primary:active,.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggl{
+    background-color: #e1bf0a;
+    border-color: #e1bf0a;
+}
+
+.form-control, .btn{
+    border-radius: 0;
+}

@@ -30,11 +30,11 @@ class FaqSinonimos
 
     private function search($link, $word){
         $word = mysqli_real_escape_string($link, $word);
-        $sql = "SELECT {$this->id} FROM {$this->database}.{$this->table} WHERE CONCAT(',',{$this->field},',') LIKE '%,$word,%'";
+        $sql = "SELECT {$this->field} FROM {$this->database}.{$this->table} WHERE CONCAT(',',{$this->field},',') LIKE '%,$word,%'";
         $rs = mysqli_query($link,$sql);
         $res = [];
         while ($row = mysqli_fetch_assoc($rs)){
-            array_push($res, $row['id']);
+            array_push($res, $row[$this->field]);
         }
         return $res;
     }
